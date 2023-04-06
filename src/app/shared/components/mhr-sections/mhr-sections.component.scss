@@ -1,0 +1,15 @@
+:host {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+
+  ::ng-deep {
+    mhr-section {
+      &:not(:last-of-type) {
+        border-right: 1px solid var(--mhr-section-divider-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use "sass:color";
+
+$constants: (
+  primary-color: #161719,
+  secondary-color: #ffffff,
+  warning-text-color: rgba(255, 6, 10, 0.64),
+  warn-color: #ff060a,
+  background-color: #ffffff,
+  button-shadow-1: "0px 8px 12px rgba(169, 175, 185, 0.32)",
+  padding-24: 24px,
+  text-color: #4a4e56,
+  section-divider-color: rgba(74, 78, 86, 0.8),
+);

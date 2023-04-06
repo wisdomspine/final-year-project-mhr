@@ -1,0 +1,44 @@
+:host {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+
+  .left-pane {
+    width: 50%;
+    background-image: url("/assets/images/network_nodes.png");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: -12% 140%;
+  }
+  .right-pane {
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: var(--mhr-padding-24);
+    .title {
+      text-align: center;
+      color: var(--mhr-text-color);
+    }
+
+    .spacer-1 {
+      flex: 3 4 auto;
+    }
+    .spacer-2 {
+      flex: 1 1 auto;
+    }
+    .spacer-3 {
+      flex: 3 3 auto;
+    }
+    img {
+      height: 64px;
+      width: auto;
+      cursor: pointer;
+    }
+    button {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
+}

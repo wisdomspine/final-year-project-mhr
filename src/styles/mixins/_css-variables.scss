@@ -1,0 +1,8 @@
+@use "../functions" as functions;
+@mixin css-variables($map) {
+  :root {
+    @each $key, $value in $map {
+      --#{functions.app-prefix($key)}: #{$value};
+    }
+  }
+}

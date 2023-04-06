@@ -1,0 +1,5 @@
+@mixin background($color) {
+  body {
+    background-color: $color;
+  }
+}

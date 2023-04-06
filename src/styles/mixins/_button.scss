@@ -1,0 +1,12 @@
+@use "../functions/" as functions;
+@mixin button($constants) {
+  .mdc-button.#{functions.app-prefix(button-1)} {
+    box-shadow: unquote(
+      $string: map-get($map: $constants, $key: button-shadow-1)
+    );
+    border-radius: 32px;
+    font-size: 1.2em;
+    padding: 24px 32px;
+    font-weight: 600;
+  }
+}

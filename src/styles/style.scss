@@ -1,0 +1,34 @@
+@use "@angular/material" as mat;
+@use "./mixins/" as mixins;
+@use "./palettes/" as palettes;
+@use "./typography" as typography;
+@use "./constants" as constants;
+
+@include mat.core();
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: palettes.$primary-palette-config,
+      accent: palettes.$accent-palette-config,
+      warn: palettes.$warn-palette-config,
+    ),
+    typography: typography.$typography-config,
+  )
+);
+// typography config
+@include mat.typography-hierarchy(typography.$typography-config);
+
+@include mat.core-theme($theme);
+@include mat.button-theme($theme);
+
+/**
+    Include some global styles and mixins here
+*/
+@include mixins.presets();
+@include mixins.css-variables(constants.$constants);
+@include mixins.elevation(map-get(constants.$constants, shadow-color));
+@include mixins.dialog();
+@include mixins.background(
+  $color: map-get(constants.$constants, background-color)
+);
+@include mixins.button(constants.$constants);
