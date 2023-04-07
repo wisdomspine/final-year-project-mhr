@@ -2,4 +2,31 @@
   height: 100vh;
   width: 100vw;
   display: block;
+  .side-panel {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    padding-top: var(--mhr-padding-24);
+    padding-bottom: var(--mhr-padding-24);
+
+    .spacer-1 {
+      flex: 2 1 auto;
+    }
+
+    .spacer-2 {
+      flex: 7 1 auto;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+
+      mhr-nav-link {
+        &:not(:last-of-type) {
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
 }

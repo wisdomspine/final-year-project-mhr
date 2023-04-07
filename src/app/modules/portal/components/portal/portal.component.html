@@ -1,11 +1,32 @@
 <mhr-sections>
-  <!-- navigation -->
-  <mhr-section width="160px">
-    <mhr-nav-link
-      routerLink="/profile"
-      svgIcon="user-doctor"
-      title="Profile"
-    ></mhr-nav-link>
+  <!-- side panel -->
+  <mhr-section width="160px" class="side-panel">
+    <!-- notification -->
+    <mhr-notification-link routerLink="/notifications"></mhr-notification-link>
+
+    <div class="spacer-1"></div>
+
+    <!-- navigation -->
+    <div class="nav-links">
+      <mhr-nav-link
+        [routerLink]="link.path"
+        [svgIcon]="link.svgIcon"
+        [title]="link.title"
+        [active]="
+          router.isActive(link.path, {
+            fragment: 'ignored',
+            queryParams: 'ignored',
+            paths: 'subset',
+            matrixParams: 'ignored'
+          })
+        "
+        *ngFor="let link of navLinks"
+      ></mhr-nav-link>
+    </div>
+
+    <div class="spacer-2"></div>
+    <!-- disconnect wallet button -->
+    <disconnect-wallet-button></disconnect-wallet-button>
   </mhr-section>
   <mhr-section flex="1 1 auto"> </mhr-section>
 </mhr-sections>

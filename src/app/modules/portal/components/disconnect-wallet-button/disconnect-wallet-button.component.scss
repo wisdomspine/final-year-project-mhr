@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  button {
+    border-radius: 0px;
+    padding: 32px 44px;
+    flex: 1 1 auto;
+
+    .text {
+      color: var(--mhr-warning-text-color);
+      font-weight: 500;
+    }
+  }
+}

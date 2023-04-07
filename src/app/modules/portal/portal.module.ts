@@ -9,9 +9,11 @@ import {
   MhrSectionsComponent,
   MhrNotificationLinkComponent,
 } from '@mhr/components';
+import { DisconnectWalletButtonComponent } from './components/disconnect-wallet-button/disconnect-wallet-button.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [PortalComponent],
+  declarations: [PortalComponent, DisconnectWalletButtonComponent],
   imports: [
     CommonModule,
     PortalRoutingModule,
@@ -19,6 +21,7 @@ import {
     MhrSectionComponent,
     MhrNotificationLinkComponent,
     MhrNavLinkComponent,
+    MatButtonModule,
   ],
 })
 export class PortalModule {}
