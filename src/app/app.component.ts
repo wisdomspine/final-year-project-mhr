@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { IconService } from '@app/core/services';
 
 @Component({
   selector: 'app-root',
   template: ` <router-outlet></router-outlet> `,
 })
 export class AppComponent {
-  title = 'mhr';
+  readonly iconService = inject(IconService);
 }
