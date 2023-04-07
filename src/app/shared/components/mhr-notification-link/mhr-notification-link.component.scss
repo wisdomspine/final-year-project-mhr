@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  button {
+    border-radius: 0px;
+    padding: 32px 44px;
+    flex: 1 1 auto;
+    .content {
+      position: relative;
+      mat-icon {
+        height: 28px;
+      }
+
+      .active-indicator {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 8px;
+        width: 8px;
+        border-radius: 8px;
+        background-color: var(--mhr-active-color);
+      }
+    }
+  }
+}
