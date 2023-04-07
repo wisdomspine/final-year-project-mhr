@@ -11,7 +11,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
   template: `
     <button mat-button>
       <div class="content">
-        <mat-icon svgIcon="bell"></mat-icon>
+        <mat-icon svgIcon="bell" color="primary"></mat-icon>
         <div class="active-indicator" *ngIf="active" [@active]="active"></div>
       </div>
     </button>

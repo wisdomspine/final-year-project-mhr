@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  button {
+    border-radius: 0px;
+    padding: 32px 44px;
+    flex: 1 1 auto;
+
+    .content {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s ease-in;
+      mat-icon {
+        height: 28px;
+      }
+      .text {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &:not(.active) {
+    .content {
+      color: var(--mhr-inactive-navigation-link-color);
+    }
+  }
+
+  &.active,
+  &:hover {
+    .content {
+      color: var(--mhr-active-navigation-link-color);
+    }
+  }
+}

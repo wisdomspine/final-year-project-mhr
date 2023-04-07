@@ -3,8 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { PortalRoutingModule } from './portal-routing.module';
 import { PortalComponent } from './components/portal/portal.component';
-import { MhrSectionComponent, MhrSectionsComponent } from '@mhr/components';
-import { MhrNotificationLinkComponent } from '@app/shared/components/mhr-notification-link/mhr-notification-link.component';
+import {
+  MhrNavLinkComponent,
+  MhrSectionComponent,
+  MhrSectionsComponent,
+  MhrNotificationLinkComponent,
+} from '@mhr/components';
 
 @NgModule({
   declarations: [PortalComponent],
@@ -14,6 +18,7 @@ import { MhrNotificationLinkComponent } from '@app/shared/components/mhr-notific
     MhrSectionsComponent,
     MhrSectionComponent,
     MhrNotificationLinkComponent,
+    MhrNavLinkComponent,
   ],
 })
 export class PortalModule {}
