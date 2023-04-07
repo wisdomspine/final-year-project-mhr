@@ -1,3 +1,7 @@
 :host {
   height: 100%;
+  &.vertical-padding {
+    padding-top: var(--mhr-padding-24);
+    padding-bottom: var(--mhr-padding-24);
+  }
 }

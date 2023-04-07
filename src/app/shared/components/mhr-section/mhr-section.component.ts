@@ -16,4 +16,8 @@ export class MhrSectionComponent {
   @HostBinding('style.flex')
   @Input()
   flex!: string;
+
+  @HostBinding('class.vertical-padding')
+  @Input()
+  verticalPadding: boolean = true;
 }
