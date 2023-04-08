@@ -1,0 +1,15 @@
+:host {
+  .content {
+    height: 28px;
+    width: 28px;
+    border-radius: 4px;
+    background-color: var(--mhr-secondary-action-color);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    mat-icon {
+      width: 24px;
+    }
+  }
+}

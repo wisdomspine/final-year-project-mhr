@@ -5,7 +5,7 @@ $typography-config: mat.define-typography-config(
   $headline-5:
     mat.define-typography-level(
       $font-weight: 600,
-      $font-size: 2.8em,
+      $font-size: 1.9em,
       $line-height: 1.2,
       $letter-spacing: normal,
     ),
@@ -14,6 +14,27 @@ $typography-config: mat.define-typography-config(
       $font-weight: 600,
       $font-size: 2.3em,
       $line-height: 1.5,
+      $letter-spacing: normal,
+    ),
+  $caption:
+    mat.define-typography-level(
+      $font-weight: 400,
+      $font-size: 0.8572em,
+      $line-height: 1.5,
+      $letter-spacing: normal,
+    ),
+  $subtitle-1:
+    mat.define-typography-level(
+      $font-weight: 500,
+      $font-size: 1.145em,
+      $line-height: 1.2,
+      $letter-spacing: normal,
+    ),
+  $subtitle-2:
+    mat.define-typography-level(
+      $font-weight: 400,
+      $font-size: 0.93em,
+      $line-height: 1.4,
       $letter-spacing: normal,
     ),
 );

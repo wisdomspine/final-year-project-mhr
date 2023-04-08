@@ -1,0 +1,54 @@
+:host {
+  .left-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    .header {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: var(--mhr-padding-24);
+      padding-right: var(--mhr-padding-24);
+      .mat-headline-5 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .badge {
+        background-color: var(--mhr-secondary-action-color);
+        padding: 4px 12px;
+        border-radius: 24px;
+        text-transform: capitalize;
+        &.active {
+          color: var(--mhr-active-color);
+        }
+
+        &.completed {
+          color: var(--mhr-warning-text-color);
+        }
+
+        &.pending {
+          color: var(--mhr-pending-color);
+        }
+      }
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+
+      button {
+        align-self: center;
+        margin-top: 64px;
+        background-color: var(--mhr-secondary-action-color);
+        padding: 20px 44px;
+        .text {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

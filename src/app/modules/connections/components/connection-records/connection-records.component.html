@@ -1,0 +1,46 @@
+<mhr-sections>
+  <!-- actions -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="header">
+      <mhr-go-back-button routerLink="../"></mhr-go-back-button>
+      <span class="mat-headline-5"> Records </span>
+      <mhr-add-record-icon></mhr-add-record-icon>
+    </div>
+
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <mhr-empty-records
+        description="No records yet, let's get started by adding one."
+        buttonText="Add Record"
+        *ngIf="empty"
+      ></mhr-empty-records>
+
+      <!-- records -->
+      <mhr-list-tile
+        [routerLink]="record.id"
+        routerLinkActive="active"
+        *ngFor="let record of records"
+      >
+        <mhr-list-tile-title> {{ record.name }} </mhr-list-tile-title>
+        <mhr-list-tile-action>
+          <mhr-expand-item-icon></mhr-expand-item-icon>
+        </mhr-list-tile-action>
+      </mhr-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section
+    [verticalPadding]="false"
+    class="right-section"
+    flex="1 1 auto"
+    [class.no-record-selected]="noRecordSelected"
+  >
+    <mhr-empty-records
+      description="Select a record on the left to view its details"
+      *ngIf="noRecordSelected"
+    ></mhr-empty-records>
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>

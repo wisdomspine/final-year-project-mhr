@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  mhr-list-tile-title {
+    .mat-caption {
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  }
+  mhr-list-tile-subtitle {
+    .mat-subtitle-1 {
+      font-weight: 400;
+      line-height: 1.5;
+      word-break: break-all;
+    }
+  }
+}

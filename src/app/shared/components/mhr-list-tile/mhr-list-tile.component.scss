@@ -1,0 +1,38 @@
+:host {
+  .container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    .titles {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: center;
+
+      ::ng-deep {
+        > * {
+          &:not(:first-child) {
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+
+    > * {
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+  }
+  display: inline-block;
+  &:hover,
+  &.active {
+    .container {
+      background-color: var(--mhr-list-tile-active-color);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: min(180px, 70%);
+  }
+  p {
+    text-align: center;
+    max-width: min(280px, 70%);
+    color: var(--mhr-empty-text-color);
+  }
+  > * {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  button {
+    border-radius: 32px;
+    padding: 16px 44px;
+  }
+}

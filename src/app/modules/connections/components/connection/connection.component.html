@@ -1,0 +1,38 @@
+<mhr-sections>
+  <!-- actions -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="header">
+      <span class="mat-headline-5" matTooltip="x02637883783838822">
+        x02637883783838822
+      </span>
+      <span class="badge mat-caption {{ status }}"> {{ status }} </span>
+    </div>
+
+    <!-- content -->
+    <div class="content">
+      <mhr-list-tile routerLink="metadata" routerLinkActive="active">
+        <mhr-list-tile-title> Metadata </mhr-list-tile-title>
+        <mhr-list-tile-action>
+          <mhr-expand-item-icon></mhr-expand-item-icon>
+        </mhr-list-tile-action>
+      </mhr-list-tile>
+
+      <mhr-list-tile routerLink="records" routerLinkActive="active">
+        <mhr-list-tile-title> Records </mhr-list-tile-title>
+        <mhr-list-tile-action>
+          <mhr-navigate-to-item-icon></mhr-navigate-to-item-icon>
+        </mhr-list-tile-action>
+      </mhr-list-tile>
+
+      <button type="button" mat-flat-button color="accent">
+        <span class="text"> End Connection </span>
+      </button>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>

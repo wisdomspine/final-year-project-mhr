@@ -4,10 +4,10 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "@mhr/*": ["./app/shared/*"],
       "@app/*": ["./app/*"],
       "@core/*": ["./app/core/*"],
-      "@modules/*": ["./app/modules/*"],
-      "@mhr/*": ["./app/shared/*"]
+      "@modules/*": ["./app/modules/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

@@ -1,0 +1,50 @@
+<mhr-sections>
+  <!-- current connections -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="header">
+      <span class="mat-headline-5"> Connections </span>
+      <mhr-add-record-icon></mhr-add-record-icon>
+    </div>
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <!--  -->
+      <mhr-empty-records
+        description="No connections at the moment. Connections will show here as soon as you have any."
+        buttonText="Request"
+        *ngIf="empty"
+      ></mhr-empty-records>
+
+      <mhr-connection-list-tile
+        [name]="connection.name"
+        [time]="connection.time"
+        [status]="connection.status"
+        *ngFor="let connection of connections"
+        [routerLink]="'/connections/' + connection.name"
+        [active]="
+          router.isActive('/connections/' + connection.name, {
+            fragment: 'ignored',
+            matrixParams: 'ignored',
+            paths: 'subset',
+            queryParams: 'ignored'
+          })
+        "
+      >
+      </mhr-connection-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section
+    [verticalPadding]="false"
+    [class.no-connection-selected]="noConnectionSelected"
+    class="right-section"
+    flex="1 1 auto"
+  >
+    <mhr-empty-records
+      description="Select a connection on the left to view and manage patient records"
+      *ngIf="noConnectionSelected"
+    ></mhr-empty-records>
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>
