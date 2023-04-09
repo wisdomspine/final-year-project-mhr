@@ -25,7 +25,12 @@
         </mhr-list-tile-action>
       </mhr-list-tile>
 
-      <button type="button" mat-flat-button color="accent">
+      <button
+        type="button"
+        mat-flat-button
+        color="accent"
+        (click)="endConnection()"
+      >
         <span class="text"> End Connection </span>
       </button>
     </div>

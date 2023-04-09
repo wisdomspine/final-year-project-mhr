@@ -20,3 +20,6 @@ export * from './mhr-navigate-to-item-icon/mhr-navigate-to-item-icon.component';
 export * from './mhr-record-details/mhr-record-details.component';
 export * from './mhr-record-page/mhr-record-page.component';
 export * from './mhr-go-back-button/mhr-go-back-button.component';
+export * from './mhr-alert-panel/mhr-alert-panel.component';
+export * from './mhr-close-icon/mhr-close-icon.component';
+export * from './mhr-message-dialog/mhr-message-dialog.component';

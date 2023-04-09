@@ -1,0 +1,37 @@
+<mhr-sections>
+  <!-- actions -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="header">
+      <mhr-go-back-button routerLink="../"></mhr-go-back-button>
+      <span class="mat-headline-5" matTooltip="Personal Information"
+        >Personal Information
+      </span>
+    </div>
+
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <!-- no record of specified type -->
+      <mhr-empty-records
+        description="There are no records of this type for this patient"
+        *ngIf="empty"
+      ></mhr-empty-records>
+      <!-- records -->
+      <mhr-list-tile
+        [routerLink]="record.address"
+        routerLinkActive="active"
+        *ngFor="let record of records"
+      >
+        <mhr-list-tile-title> {{ record.address }} </mhr-list-tile-title>
+        <mhr-list-tile-subtitle>
+          {{ record.time | mhrRelativeTime }}
+        </mhr-list-tile-subtitle>
+      </mhr-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>

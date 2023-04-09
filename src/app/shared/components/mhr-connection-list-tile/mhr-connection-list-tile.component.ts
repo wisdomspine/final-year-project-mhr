@@ -8,6 +8,27 @@ import {
 } from '@mhr/components';
 import { MhrRelativeTimePipe } from '@mhr/pipes';
 
+export const MockConnections: {
+  name: string;
+  status: MhrConnectionStatus;
+  time: Date;
+}[] = [
+  {
+    name: 'John Abdul',
+    time: new Date(new Date().setHours(16, 20)),
+    status: 'active',
+  },
+  {
+    name: 'x02637883783838822',
+    time: new Date(),
+    status: 'pending',
+  },
+  {
+    name: 'John Mike',
+    time: new Date(new Date().setMonth(5, 12)),
+    status: 'completed',
+  },
+];
 export type MhrConnectionStatus = 'active' | 'pending' | 'completed';
 
 @Component({

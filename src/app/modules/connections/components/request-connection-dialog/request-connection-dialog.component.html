@@ -1,0 +1,86 @@
+<!-- dialog header -->
+<div class="header" matDialogTitle>
+  <span class="mat-headline-5"> Request Connection </span>
+  <mhr-close-icon matDialogClose></mhr-close-icon>
+</div>
+
+<!-- body -->
+<form [formGroup]="form" matDialogContent>
+  <!-- alert panel -->
+  <mhr-alert-panel
+    *ngIf="
+      form.hasError('emptyPeriod') &&
+      form.controls.hours.touched &&
+      form.controls.minutes.touched
+    "
+  >
+    Select a period greater or equal to 5 minutes
+  </mhr-alert-panel>
+
+  <!-- address -->
+  <mat-form-field appearance="outline">
+    <mat-label>Patient’s address</mat-label>
+    <input type="text" formControlName="address" matInput />
+    <mat-error *ngIf="form.controls.address.hasError('required')">
+      Address is required
+    </mat-error>
+
+    <mat-icon
+      class="active"
+      matSuffix
+      *ngIf="form.controls.address.valid"
+      svgIcon="check"
+    ></mat-icon>
+  </mat-form-field>
+
+  <!-- name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Name(Optional)</mat-label>
+    <input type="text" formControlName="name" matInput />
+    <mat-error *ngIf="form.controls.name.hasError('maxlength')">
+      Should be
+      {{ form.controls.name.errors?.['maxlength']?.requiredLength }} characters
+      or less
+    </mat-error>
+  </mat-form-field>
+
+  <!-- description -->
+  <mat-form-field appearance="outline">
+    <mat-label>Description(Optional)</mat-label>
+    <textarea formControlName="description" matInput></textarea>
+    <mat-error *ngIf="form.controls.description.hasError('maxlength')">
+      Should be
+      {{ form.controls.description.errors?.['maxlength']?.requiredLength }}
+      characters or less
+    </mat-error>
+  </mat-form-field>
+
+  <!-- duration div -->
+  <div class="period">
+    <!-- hours -->
+    <mat-form-field appearance="outline">
+      <mat-label>Hours</mat-label>
+      <input type="number" formControlName="hours" matInput min="0" />
+      <mat-error *ngIf="form.controls.hours.hasError('min')">
+        Should be
+        {{ form.controls.hours.errors?.['min']?.min }}
+        or more hours
+      </mat-error>
+    </mat-form-field>
+
+    <!-- minutes -->
+    <mat-form-field appearance="outline">
+      <mat-label>Minutes</mat-label>
+      <mat-select formControlName="minutes">
+        <mat-option *ngFor="let min of minutes" [value]="min">
+          {{ min }} {{ min > 1 ? "mins" : "min" }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- button -->
+  <button type="submit" mat-flat-button color="primary">
+    <span class="text"> Request Connection </span>
+  </button>
+</form>

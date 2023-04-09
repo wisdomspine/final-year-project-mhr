@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MhrIconButtonComponent } from '@mhr/components';
 
@@ -13,5 +12,14 @@ import { MhrIconButtonComponent } from '@mhr/components';
       <mat-icon svgIcon="arrow-left-long"> </mat-icon>
     </mhr-icon-button>
   `,
+  styles: [
+    `
+      :host {
+        mat-icon {
+          width: 24px;
+        }
+      }
+    `,
+  ],
 })
 export class MhrGoBackButtonComponent {}

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styles: [
     `
       :host {
+        word-break: break-word;
         color: var(--mhr-primary-color);
         &.mat-subtitle-1 {
           margin-bottom: 0px;

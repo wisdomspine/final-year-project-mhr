@@ -1,0 +1,16 @@
+:host {
+  mhr-list-tile {
+    display: block;
+  }
+
+  mhr-list-tile-action {
+    span {
+      text-transform: capitalize;
+      color: var(--mhr-list-tile-action-color);
+    }
+  }
+  mhr-list-tile-subtitle {
+    text-transform: capitalize;
+    word-break: break-all;
+  }
+}

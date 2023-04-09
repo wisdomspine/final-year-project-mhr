@@ -1,0 +1,36 @@
+:host {
+  .content {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    display: flex;
+    flex-flow: column nowrap;
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+    .mat-headline-5 {
+      text-align: center;
+      color: var(--mhr-primary-color);
+    }
+    p {
+      color: var(--mhr-text-color-2);
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      > * {
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
+      .secondary {
+        background-color: var(--mhr-secondary-action-color);
+      }
+    }
+  }
+}

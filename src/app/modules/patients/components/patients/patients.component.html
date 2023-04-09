@@ -1,0 +1,49 @@
+<mhr-sections>
+  <!-- current patients -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="mat-headline-5">Patients</div>
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <!-- no patients -->
+      <mhr-empty-records
+        description="You’ve not established a connection with any patient. Patients you connected with will show here"
+        buttonText="Request Connection"
+        *ngIf="empty"
+        (buttonClick)="requestConnection()"
+      ></mhr-empty-records>
+
+      <!-- patients -->
+      <patient-list-tile
+        [name]="patient.name"
+        [address]="patient.address"
+        [connections]="patient.connections"
+        *ngFor="let patient of patients"
+        [routerLink]="'/patients/' + patient.address"
+        [active]="
+          router.isActive('/patients/' + patient.address, {
+            fragment: 'ignored',
+            matrixParams: 'ignored',
+            paths: 'subset',
+            queryParams: 'ignored'
+          })
+        "
+      >
+      </patient-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section
+    [verticalPadding]="false"
+    class="right-section"
+    flex="1 1 auto"
+    [class.no-patient-selected]="noPatientSelected"
+  >
+    <mhr-empty-records
+      description="To view the medical record of a patient, click the patient on the left"
+      *ngIf="noPatientSelected"
+    ></mhr-empty-records>
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>

@@ -1,0 +1,21 @@
+:host {
+  .left-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    .mat-headline-5 {
+      padding-left: var(--mhr-padding-24);
+      padding-right: var(--mhr-padding-24);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+    }
+  }
+}

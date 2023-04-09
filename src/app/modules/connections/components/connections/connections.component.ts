@@ -1,36 +1,34 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { MhrConnectionStatus } from '@mhr/components';
+import { Component, OnDestroy, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MockConnections } from '@mhr/components';
+import { MatDialog } from '@angular/material/dialog';
+import { RequestConnectionDialogComponent } from '../../components';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'mhr-connections',
   templateUrl: './connections.component.html',
   styleUrls: ['./connections.component.scss'],
 })
-export class ConnectionsComponent {
+export class ConnectionsComponent implements OnDestroy {
+  readonly destroy$: Subject<void> = new Subject();
   readonly router = inject(Router);
   empty: boolean = false;
-  readonly connections: {
-    name: string;
-    status: MhrConnectionStatus;
-    time: Date;
-  }[] = [
-    {
-      name: 'John Abdul',
-      time: new Date(new Date().setHours(16, 20)),
-      status: 'active',
-    },
-    {
-      name: 'x02637883783838822',
-      time: new Date(),
-      status: 'pending',
-    },
-    {
-      name: 'John Mike',
-      time: new Date(new Date().setMonth(5, 12)),
-      status: 'completed',
-    },
-  ];
+  readonly dialog = inject(MatDialog);
+  readonly activatedRoute = inject(ActivatedRoute);
+  readonly querySubscription = this.activatedRoute.queryParams
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((query) => {
+      if (query['request-connection']) {
+        this.requestConnection();
+      }
+    });
+  readonly connections = MockConnections;
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   get noConnectionSelected(): boolean {
     return (
       !this.empty &&
@@ -41,5 +39,11 @@ export class ConnectionsComponent {
         queryParams: 'ignored',
       })
     );
+  }
+  requestConnection() {
+    this.dialog.open(RequestConnectionDialogComponent, {
+      width: 'min(540px, 80vw)',
+      disableClose: true,
+    });
   }
 }

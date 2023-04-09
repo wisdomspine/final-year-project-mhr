@@ -1,0 +1,61 @@
+:host {
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+
+    // ensures the label for  first form control is not hidden
+    padding-top: 4px;
+
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+
+    .period {
+      display: flex;
+      flex-flow: row nowrap;
+
+      > * {
+        flex: 1 1 auto;
+        &:not(:last-child) {
+          margin-right: 24px;
+        }
+      }
+    }
+    button {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    mat-icon {
+      width: 24px;
+      color: var(--mhr-active-color);
+    }
+  }
+
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 24px;
+
+    // remove the before pseudo element from mat-dialog, leaving it affects
+    // the justification of children
+    &::before {
+      display: none;
+    }
+
+    // this removes the default font size from matDialogTitle
+    font-size: unset;
+
+    .mat-headline-5 {
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<mhr-sections>
+  <!-- current connections -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="mat-headline-5">Connections</div>
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <!-- no connection for this patient -->
+      <mhr-empty-records
+        description="No connections at the moment. Connections will show here as soon as you have any."
+        buttonText="Request Connection"
+        *ngIf="empty"
+        (buttonClick)="requestConnection()"
+      ></mhr-empty-records>
+
+      <mhr-connection-list-tile
+        [name]="connection.name"
+        [time]="connection.time"
+        [status]="connection.status"
+        *ngFor="let connection of connections"
+        [routerLink]="'/connections/' + connection.name"
+      >
+      </mhr-connection-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+  </mhr-section>
+</mhr-sections>

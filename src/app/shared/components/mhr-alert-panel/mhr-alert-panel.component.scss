@@ -1,0 +1,21 @@
+:host {
+  border-radius: 8px;
+  padding: 8px 12px;
+  border-style: solid;
+  border-width: 1px;
+
+  &.error {
+    border-color: var(--mhr-warn-color);
+    color: var(--mhr-warn-color);
+  }
+
+  &.success {
+    border-color: var(--mhr-active-color);
+    color: var(--mhr-active-color);
+  }
+
+  &.info {
+    border-color: var(--mhr-primary-color);
+    color: var(--mhr-primary-color);
+  }
+}

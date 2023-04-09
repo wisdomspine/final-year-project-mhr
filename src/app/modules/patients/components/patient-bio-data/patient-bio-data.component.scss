@@ -1,0 +1,23 @@
+:host {
+  .left-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    .mat-headline-5 {
+      padding-left: var(--mhr-padding-24);
+      padding-right: var(--mhr-padding-24);
+      margin-bottom: 0px;
+    }
+
+    .content {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+      mhr-list-tile-action {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+      }
+    }
+  }
+}

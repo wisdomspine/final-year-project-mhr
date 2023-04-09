@@ -1,0 +1,29 @@
+<mhr-sections>
+  <!-- actions -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="mat-headline-5">John Abdul</div>
+
+    <!-- content -->
+    <div class="content">
+      <mhr-list-tile routerLink="bio-data" routerLinkActive="active">
+        <mhr-list-tile-title> Bio Data </mhr-list-tile-title>
+        <mhr-list-tile-action>
+          <mhr-navigate-to-item-icon></mhr-navigate-to-item-icon>
+        </mhr-list-tile-action>
+      </mhr-list-tile>
+
+      <mhr-list-tile routerLink="connections" routerLinkActive="active">
+        <mhr-list-tile-title> Connections </mhr-list-tile-title>
+        <mhr-list-tile-action>
+          <mhr-navigate-to-item-icon></mhr-navigate-to-item-icon>
+        </mhr-list-tile-action>
+      </mhr-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>

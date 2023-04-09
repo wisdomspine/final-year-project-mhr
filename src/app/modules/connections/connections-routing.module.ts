@@ -6,6 +6,7 @@ import {
   ConnectionRecordComponent,
   ConnectionRecordsComponent,
   ConnectionsComponent,
+  RequestConnectionDialogComponent,
 } from './components';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: '',
     component: ConnectionsComponent,
     children: [
+      { path: 'test', component: RequestConnectionDialogComponent },
       {
         path: ':connectionId',
         component: ConnectionComponent,
