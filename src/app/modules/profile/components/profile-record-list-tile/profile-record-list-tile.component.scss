@@ -1,0 +1,30 @@
+:host {
+  mhr-list-tile {
+    display: block;
+  }
+
+  mhr-list-tile-action {
+    span {
+      text-transform: capitalize;
+    }
+  }
+  mhr-list-tile-subtitle {
+    text-transform: capitalize;
+  }
+
+  &.pending {
+    mhr-list-tile-action {
+      span {
+        color: var(--mhr-pending-color);
+      }
+    }
+  }
+
+  &.signed {
+    mhr-list-tile-action {
+      span {
+        color: var(--mhr-active-color);
+      }
+    }
+  }
+}

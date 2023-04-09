@@ -1,0 +1,28 @@
+<mhr-sections>
+  <!-- current notifications -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="mat-headline-5">Notifications</div>
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <!-- no notifications -->
+      <mhr-empty-records
+        description="You currently have no notifications. Notifications will appear here as soon as you have any"
+        *ngIf="empty"
+      ></mhr-empty-records>
+
+      <!-- patients -->
+      <notification-list-tile
+        [title]="notification.title"
+        [description]="notification.description"
+        [time]="notification.time"
+        *ngFor="let notification of notifications"
+      >
+      </notification-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+  </mhr-section>
+</mhr-sections>

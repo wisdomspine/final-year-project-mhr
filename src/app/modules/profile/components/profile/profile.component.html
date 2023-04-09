@@ -1,0 +1,30 @@
+<mhr-sections>
+  <!-- actions -->
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="mat-headline-5">Profile</div>
+
+    <!-- content -->
+    <div class="content">
+      <!-- records -->
+      <mhr-list-tile
+        [routerLink]="record.id"
+        routerLinkActive="active"
+        *ngFor="let record of records"
+      >
+        <mhr-list-tile-title> {{ record.name }} </mhr-list-tile-title>
+        <mhr-list-tile-action>
+          <mhr-navigate-to-item-icon></mhr-navigate-to-item-icon>
+        </mhr-list-tile-action>
+        <mhr-list-tile-subtitle>
+          {{ record.description }}
+        </mhr-list-tile-subtitle>
+      </mhr-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>

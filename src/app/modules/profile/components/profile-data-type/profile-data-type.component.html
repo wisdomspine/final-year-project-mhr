@@ -1,0 +1,36 @@
+<mhr-sections>
+  <mhr-section width="min(360px, 24vw)" class="left-section">
+    <!--header  -->
+    <div class="header">
+      <span class="mat-headline-5" matTooltip="Professional Information">
+        Professional Information
+      </span>
+      <mhr-add-record-icon (click)="addRecord()"></mhr-add-record-icon>
+    </div>
+    <!-- content -->
+    <div class="content" [class.empty]="empty">
+      <!--  -->
+      <mhr-empty-records
+        description="You have no record of this type yet. Click the button below to add one"
+        buttonText="Add record"
+        *ngIf="empty"
+        (buttonClick)="addRecord()"
+      ></mhr-empty-records>
+
+      <profile-record-list-tile
+        [address]="record.address"
+        [time]="record.time"
+        [status]="record.status"
+        *ngFor="let record of records"
+        [routerLink]="record.address"
+        routerLinkActive="active"
+      >
+      </profile-record-list-tile>
+    </div>
+  </mhr-section>
+
+  <!-- router outlet -->
+  <mhr-section [verticalPadding]="false" class="right-section" flex="1 1 auto">
+    <router-outlet></router-outlet>
+  </mhr-section>
+</mhr-sections>
