@@ -8,6 +8,7 @@ const icons: string[] = [
   'chevron-right',
   'expand-arrow',
   'link-horizontal',
+  'minus',
   'plus',
   'user-doctor',
   'users-medical',

@@ -1,1 +1,20 @@
-<p>new-profile-record works!</p>
+<mhr-sections>
+  <!-- actions -->
+  <mhr-section width="min(580px, 100%)" class="left-section">
+    <!--header  -->
+    <div class="header">
+      <span class="mat-headline-5" matTooltip="x02637883783838822">
+        Add copy
+      </span>
+      <button mat-button class="badge mat-caption" [disabled]="form.invalid">
+        Done
+      </button>
+    </div>
+
+    <!-- content -->
+    <div class="content">
+      <mhr-record-form [formGroup]="form" [fields]="records"> </mhr-record-form>
+    </div>
+  </mhr-section>
+  <!-- do nothing here -->
+</mhr-sections>

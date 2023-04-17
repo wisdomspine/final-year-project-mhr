@@ -3,18 +3,17 @@
   <mhr-section width="min(360px, 24vw)" class="left-section">
     <!--header  -->
     <div class="header">
-      <span class="mat-headline-5"> Records </span>
-      <mhr-add-record-icon (click)="addRecord()"></mhr-add-record-icon>
+      <mhr-go-back-button routerLink="../"></mhr-go-back-button>
+      <span
+        class="mat-headline-5"
+        matTooltip="5IIFGXH2CJNRRTZJ4SFATW52X3AQKEG2HRSDQQKKMRCGJGW3FTB4F7ZMRI"
+      >
+        5IIFGXH2CJNRRTZJ4SFATW52X3AQKEG2HRSDQQKKMRCGJGW3FTB4F7ZMRI
+      </span>
     </div>
 
     <!-- content -->
-    <div class="content" [class.empty]="empty">
-      <mhr-empty-records
-        description="No records yet, let's get started by adding one."
-        buttonText="Add Record"
-        *ngIf="empty"
-      ></mhr-empty-records>
-
+    <div class="content">
       <!-- records -->
       <mhr-list-tile
         [routerLink]="record.id"
@@ -23,11 +22,8 @@
       >
         <mhr-list-tile-title> {{ record.name }} </mhr-list-tile-title>
         <mhr-list-tile-action>
-          <mhr-navigate-to-item-icon></mhr-navigate-to-item-icon>
+          <mhr-expand-item-icon></mhr-expand-item-icon>
         </mhr-list-tile-action>
-        <mhr-list-tile-subtitle>
-          {{ record.time | mhrRelativeTime }}
-        </mhr-list-tile-subtitle>
       </mhr-list-tile>
     </div>
   </mhr-section>
@@ -37,11 +33,11 @@
     [verticalPadding]="false"
     class="right-section"
     flex="1 1 auto"
-    [class.no-record-selected]="noRecordSelected"
+    [class.no-record-selected]="noSegmentSelected"
   >
     <mhr-empty-records
-      description="Select a record on the left to view its details"
-      *ngIf="noRecordSelected"
+      description="Select a segment on the left to view its details"
+      *ngIf="noSegmentSelected"
     ></mhr-empty-records>
     <router-outlet></router-outlet>
   </mhr-section>

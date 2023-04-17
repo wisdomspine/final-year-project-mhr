@@ -1,0 +1,39 @@
+<mhr-close-icon (click)="close()"></mhr-close-icon>
+<!-- body -->
+<div class="body" matDialogContent>
+  <div class="aside">
+    <!-- asside header -->
+    <div class="header">
+      <span class="mat-headline-5"> Segments </span>
+      <mhr-add-record-icon></mhr-add-record-icon>
+    </div>
+
+    <!-- aside segments list -->
+    <div class="aside-body">
+      <mhr-list-tile
+        *ngFor="let segment of segments; let i = index"
+        (click)="activeIndex = i"
+        [active]="i === activeIndex"
+      >
+        <mhr-list-tile-title> {{ segment }} </mhr-list-tile-title>
+        <mhr-list-tile-action *ngIf="segments.length > 1">
+          <!-- TODO: set delete icon here -->
+          <mhr-icon-button
+            (click)="$event.stopImmediatePropagation(); deleteSegement(i)"
+          >
+            <mat-icon svgIcon="minus" color="primary"></mat-icon>
+          </mhr-icon-button>
+        </mhr-list-tile-action>
+      </mhr-list-tile>
+    </div>
+  </div>
+  <div class="content">
+    <mhr-record-form [formGroup]="form" [fields]="fields"> </mhr-record-form>
+  </div>
+</div>
+<!-- footer -->
+<div matDialogActions class="footer">
+  <button type="button" mat-flat-button color="primary" (click)="submit()">
+    <span class="button-text">Done</span>
+  </button>
+</div>

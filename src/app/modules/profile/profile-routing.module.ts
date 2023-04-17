@@ -6,6 +6,7 @@ import {
   ProfileDataTypeComponent,
   ProfileRecordComponent,
 } from './components';
+import { confirmRouteDeactivationGuard } from '@core/guards';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
           {
             path: 'add-record',
             component: NewProfileRecordComponent,
+            canDeactivate: [confirmRouteDeactivationGuard],
           },
           {
             path: ':address',

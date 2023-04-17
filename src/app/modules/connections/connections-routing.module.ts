@@ -7,6 +7,7 @@ import {
   ConnectionRecordsComponent,
   ConnectionsComponent,
   RequestConnectionDialogComponent,
+  ConnectionRecordSegmentComponent,
 } from './components';
 
 const routes: Routes = [
@@ -26,10 +27,14 @@ const routes: Routes = [
           {
             path: 'records',
             component: ConnectionRecordsComponent,
+          },
+          {
+            path: 'records/:recordId',
+            component: ConnectionRecordComponent,
             children: [
               {
-                path: ':recordId',
-                component: ConnectionRecordComponent,
+                path: ':segmentId',
+                component: ConnectionRecordSegmentComponent,
               },
             ],
           },

@@ -17,12 +17,20 @@ import {
   MhrRecordPageComponent,
   MhrSectionComponent,
   MhrSectionsComponent,
+  MhrListTileSubtitleComponent,
+  MhrIconButtonComponent,
+  MhrRecordFormComponent,
 } from '@mhr/components';
 import {
   ConnectionComponent,
   ConnectionMetadataComponent,
   ConnectionRecordsComponent,
   ConnectionsComponent,
+  ConnectionRecordMetadataDialogComponent,
+  ConnectionRecordSegmentComponent,
+  ConnectionRecordComponent,
+  RequestConnectionDialogComponent,
+  AddConnectionRecordSegmentsComponent,
 } from './components';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -30,10 +38,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { ConnectionRecordComponent } from './components/connection-record/connection-record.component';
-import { RequestConnectionDialogComponent } from './components/request-connection-dialog/request-connection-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MhrRelativeTimePipe } from '@mhr/pipes';
 
 @NgModule({
   declarations: [
@@ -43,6 +50,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ConnectionRecordsComponent,
     ConnectionRecordComponent,
     RequestConnectionDialogComponent,
+    ConnectionRecordSegmentComponent,
+    ConnectionRecordMetadataDialogComponent,
+    AddConnectionRecordSegmentsComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MhrListTileTitleComponent,
     MhrListTileActionComponent,
     MatIconModule,
+    MhrIconButtonComponent,
     MhrExpandItemIconComponent,
     MatTooltipModule,
     MhrNavigateToItemIconComponent,
@@ -69,6 +80,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MhrAlertPanelComponent,
     MhrCloseIconComponent,
     MatDialogModule,
+    MhrListTileSubtitleComponent,
+    MhrRelativeTimePipe,
+    MhrRecordFormComponent,
   ],
 })
 export class ConnectionsModule {}

@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: start;
+  > * {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+}

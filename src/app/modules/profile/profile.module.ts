@@ -17,12 +17,15 @@ import {
   MhrListTileSubtitleComponent,
   MhrListTileTitleComponent,
   MhrNavigateToItemIconComponent,
+  MhrRecordFormComponent,
   MhrRecordPageComponent,
   MhrSectionComponent,
   MhrSectionsComponent,
 } from '@mhr/components';
 import { MhrRelativeTimePipe } from '@mhr/pipes';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MhrRelativeTimePipe,
     MatTooltipModule,
     MhrRecordPageComponent,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MhrRecordFormComponent,
   ],
 })
 export class ProfileModule {}

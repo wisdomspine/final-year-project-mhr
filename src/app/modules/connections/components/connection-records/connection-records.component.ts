@@ -1,5 +1,10 @@
 import { Component, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import {
+  AddConnectionRecordSegmentsComponent,
+  ConnectionRecordMetadataDialogComponent,
+} from '../../components';
 
 @Component({
   selector: 'mhr-connection-records',
@@ -9,22 +14,22 @@ import { Router } from '@angular/router';
 export class ConnectionRecordsComponent {
   empty: boolean = false;
   readonly router = inject(Router);
-  records: { name: string; id: string }[] = [
+  readonly dialog = inject(MatDialog);
+  records: { name: string; id: string; time: Date }[] = [
     {
-      name: 'Facility (FCT)',
+      name: 'Admission',
       id: '0x33dc34',
+      time: new Date(new Date().setHours(16, 20)),
     },
     {
       name: 'Test',
       id: '0x33dc78',
+      time: new Date(new Date().setMonth(0)),
     },
     {
-      name: 'Insurance',
-      id: '0x335c34',
-    },
-    {
-      name: 'Admission',
-      id: '0x22dc34',
+      name: '5IIFGXH2CJNRRTZJ4SFATW52X3AQKEG2HRSDQQKKMRCGJGW3FTB4F7ZMRI',
+      id: '5IIFGXH2CJNRRTZJ4SFATW52X3AQKEG2HRSDQQKKMRCGJGW3FTB4F7ZMRI',
+      time: new Date(new Date().setFullYear(2022)),
     },
   ];
 
@@ -33,5 +38,26 @@ export class ConnectionRecordsComponent {
     this.router.url;
     this.router.isActive;
     return !this.empty && !regex.test(this.router.url);
+  }
+
+  addRecord() {
+    this.dialog
+      .open(ConnectionRecordMetadataDialogComponent, {
+        width: 'min(540px, 80vw)',
+        disableClose: true,
+      })
+      .afterClosed()
+      .subscribe((args) => {
+        this.showSegmentDialog(args);
+      });
+  }
+
+  showSegmentDialog(args: { name?: string; description?: string }) {
+    const ref = this.dialog.open(AddConnectionRecordSegmentsComponent, {
+      width: 'min(940px, 80vw)',
+      minHeight: 'min(640px, 80vh)',
+      maxHeight: '90vh',
+      disableClose: true,
+    });
   }
 }

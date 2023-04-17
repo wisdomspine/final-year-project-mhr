@@ -23,3 +23,5 @@ export * from './mhr-go-back-button/mhr-go-back-button.component';
 export * from './mhr-alert-panel/mhr-alert-panel.component';
 export * from './mhr-close-icon/mhr-close-icon.component';
 export * from './mhr-message-dialog/mhr-message-dialog.component';
+export * from './mhr-record-form-field/mhr-record-form-field.component';
+export * from './mhr-record-form/mhr-record-form.component';
