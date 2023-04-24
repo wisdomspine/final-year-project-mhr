@@ -6,7 +6,7 @@
     .header {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       padding-left: var(--mhr-padding-24);
       padding-right: var(--mhr-padding-24);
