@@ -10,7 +10,7 @@
       <mhr-list-tile
         [routerLink]="record.id"
         routerLinkActive="active"
-        *ngFor="let record of records"
+        *ngFor="let record of records | async"
       >
         <mhr-list-tile-title> {{ record.name }} </mhr-list-tile-title>
         <mhr-list-tile-action>

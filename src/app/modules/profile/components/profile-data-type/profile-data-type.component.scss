@@ -20,6 +20,7 @@
 
     .content {
       flex: 1 1 auto;
+      overflow-y: auto;
       &.empty {
         display: flex;
         flex-flow: column nowrap;

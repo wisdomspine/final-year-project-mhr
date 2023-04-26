@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
+import { selectProfileSegments } from '@app/core/store/hl7-data';
+import { Store } from '@ngrx/store';
+import { Subject, map } from 'rxjs';
 
 @Component({
   selector: 'mhr-profile',
@@ -6,17 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  records: { name: string; id: string; description: string }[] = [
-    {
-      name: 'Professional information',
-      id: '0x33dc34',
-      description:
-        'Personal information such as birthday, ssn, blood group, department',
-    },
-    {
-      name: 'Education',
-      id: '0x33dc78',
-      description: 'Academic degrees, wards, research papers,publications, etc',
-    },
-  ];
+  readonly store = inject(Store);
+  readonly records = this.store.select(selectProfileSegments).pipe(
+    map((segments) => Object.values(segments)),
+    map((segments) =>
+      segments.map((segment) => ({
+        name: segment.title,
+        id: segment.segment,
+        description: segment.description,
+      }))
+    )
+  );
 }

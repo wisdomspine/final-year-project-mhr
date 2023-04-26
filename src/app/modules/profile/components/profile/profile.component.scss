@@ -13,6 +13,8 @@
       display: flex;
       flex-flow: column nowrap;
       align-items: stretch;
+      flex: 1 1 auto;
+      overflow-y: auto;
       mhr-list-tile-action {
         display: flex;
         flex-flow: column nowrap;
