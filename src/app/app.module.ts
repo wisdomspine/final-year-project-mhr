@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { CoreModule } from '@app/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +18,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     HttpClientModule,
     MatDialogModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
