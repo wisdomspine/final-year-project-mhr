@@ -7,10 +7,12 @@
       "@mhr/*": ["./app/shared/*"],
       "@app/*": ["./app/*"],
       "@core/*": ["./app/core/*"],
-      "@modules/*": ["./app/modules/*"]
+      "@modules/*": ["./app/modules/*"],
+      "@env/*": ["./environments/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

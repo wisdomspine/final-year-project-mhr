@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { IconService } from '@app/core/services';
+import { IconService, IpfsService } from '@core/services';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,5 @@ import { IconService } from '@app/core/services';
 })
 export class AppComponent {
   readonly iconService = inject(IconService);
+  readonly ipfsService = inject(IpfsService);
 }

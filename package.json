@@ -27,6 +27,7 @@
     "algorand-walletconnect-qrcode-modal": "^1.8.0",
     "algosdk": "^2.2.0",
     "buffer": "^6.0.3",
+    "ipfs-http-client": "^60.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
