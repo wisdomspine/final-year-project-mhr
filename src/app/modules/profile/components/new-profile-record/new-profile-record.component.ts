@@ -1,13 +1,15 @@
 import { Component, OnDestroy, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CheckComponentDeactivation } from '@app/core/guards';
-import { selectSegment, selectSegmentsCode } from '@app/core/store/hl7-data';
+import { DialogService } from '@app/core/services';
+import { selectSegment } from '@app/core/store/hl7-data';
+import { ProfileAction } from '@core/store/profile';
 import { RecordFields } from '@mhr/components';
+import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import {
   Subject,
-  combineLatest,
   distinctUntilChanged,
   filter,
   map,
@@ -25,6 +27,9 @@ export class NewProfileRecordComponent
 {
   readonly store = inject(Store);
   readonly activatedRoute = inject(ActivatedRoute);
+  readonly dialogService = inject(DialogService);
+  readonly actions = inject(Actions);
+  readonly router = inject(Router);
   records: RecordFields = {};
 
   form = new FormGroup<{ [key: string]: FormControl }>({});
@@ -59,11 +64,33 @@ export class NewProfileRecordComponent
       this.form = new FormGroup(controls);
     });
 
+  readonly goBack = this.actions
+    .pipe(ofType(ProfileAction.recordAdded), takeUntil(this.destroy$))
+    .subscribe(({ id }) => {
+      console.log(id);
+      this.router.navigateByUrl(`../${id}`);
+    });
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
   canDeactivate() {
     return !(this.form.dirty || this.form.touched);
+  }
+
+  submit() {
+    const controls = Object.values(this.form.value).map((val) =>
+      val == null ? '' : val
+    );
+    if (controls.length < 1) return;
+    this.store.dispatch(
+      ProfileAction.addRecord({
+        segmentCode: this.activatedRoute.snapshot?.parent?.paramMap.get(
+          'type'
+        ) as string,
+        fieldValues: controls,
+      })
+    );
   }
 }

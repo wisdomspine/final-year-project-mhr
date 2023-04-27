@@ -16,7 +16,7 @@ export type ErrorType = 'session' | 'connect' | 'disconnect';
   providedIn: 'root',
 })
 export class WalletConnectService {
-  private readonly connector: WalletConnect = new WalletConnect({
+  readonly connector: WalletConnect = new WalletConnect({
     bridge: 'https://bridge.walletconnect.org',
     qrcodeModal: QRCodeModal,
   });

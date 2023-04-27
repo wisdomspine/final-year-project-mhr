@@ -6,7 +6,12 @@
       <span class="mat-headline-5" matTooltip="x02637883783838822">
         Add copy
       </span>
-      <button mat-button class="badge mat-caption" [disabled]="form.invalid">
+      <button
+        mat-button
+        class="badge mat-caption"
+        [disabled]="form.invalid"
+        (click)="submit()"
+      >
         Done
       </button>
     </div>

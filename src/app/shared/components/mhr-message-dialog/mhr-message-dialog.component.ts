@@ -11,7 +11,7 @@ export type MessageDialogAction = 'primary' | 'secondary';
 export interface MessageDialogConfig {
   title?: string;
   text: string;
-  primary: string;
+  primary?: string;
   secondary?: string;
 }
 
@@ -29,7 +29,7 @@ export interface MessageDialogConfig {
       <p [innerHTML]="data.text"></p>
 
       <!-- actions -->
-      <div class="actions">
+      <div class="actions" *ngIf="data.primary || data.secondary">
         <button
           mat-flat-button
           class="secondary"
@@ -44,7 +44,7 @@ export interface MessageDialogConfig {
         <button
           mat-flat-button
           class="primary"
-          *ngIf="data.secondary"
+          *ngIf="data.primary"
           color="primary"
           type="button"
           (click)="dialogRef.close('primary')"

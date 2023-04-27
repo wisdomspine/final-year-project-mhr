@@ -8,12 +8,12 @@
       <mhr-add-record-icon (click)="addRecord()"></mhr-add-record-icon>
     </div>
     <!-- content -->
-    <div class="content" [class.empty]="empty">
+    <div class="content" [class.empty]="(records | async)?.length == 0">
       <!--  -->
       <mhr-empty-records
         description="You have no record of this type yet. Click the button below to add one"
         buttonText="Add record"
-        *ngIf="empty"
+        *ngIf="(records | async)?.length == 0"
         (buttonClick)="addRecord()"
       ></mhr-empty-records>
 
@@ -21,7 +21,7 @@
         [address]="record.address"
         [time]="record.time"
         [status]="record.status"
-        *ngFor="let record of records"
+        *ngFor="let record of records | async"
         [routerLink]="record.address"
         routerLinkActive="active"
       >

@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileRecordStatus } from '../../components';
+import { Store } from '@ngrx/store';
+import { combineLatest, filter, map, switchMap } from 'rxjs';
+import { selectSegementRecords } from '@core/store/profile';
 
 @Component({
   selector: 'mhr-profile-data-type',
@@ -10,23 +13,21 @@ import { ProfileRecordStatus } from '../../components';
 export class ProfileDataTypeComponent {
   readonly router = inject(Router);
   readonly activatedRoute = inject(ActivatedRoute);
-  empty: boolean = false;
-  readonly records: {
-    address: string;
-    time: Date;
-    status: ProfileRecordStatus;
-  }[] = [
-    {
-      time: new Date(new Date().setHours(16, 17)),
-      address: 'ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754',
-      status: 'signed',
-    },
-    {
-      time: new Date(new Date().setFullYear(2021)),
-      address: 'ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754',
-      status: 'pending',
-    },
-  ];
+  readonly store = inject(Store);
+  readonly records = this.activatedRoute.paramMap.pipe(
+    map((map) => map.get('type')),
+    filter((type) => type != null),
+    switchMap((code) =>
+      this.store.select(selectSegementRecords(code as string))
+    ),
+    map((records) =>
+      records?.map((record) => ({
+        time: record.time,
+        status: record.status,
+        address: record.assetId,
+      }))
+    )
+  );
 
   addRecord() {
     this.router.navigate(['add-record'], {

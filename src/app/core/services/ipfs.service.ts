@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Firestore, addDoc, collection } from '@angular/fire/firestore';
 import { environment } from '@env/environment.development';
 import { create } from 'ipfs-http-client';
 import { Observable, from } from 'rxjs';
@@ -19,7 +20,13 @@ export class IpfsService {
     },
   });
   readonly httpClient = inject(HttpClient);
+  readonly firestore = inject(Firestore);
 
+  /**
+   *
+   * @param content
+   * @returns path without base url
+   */
   add(content: string) {
     return from(this.client.add(content).then((res) => res.path));
   }
@@ -32,5 +39,11 @@ export class IpfsService {
     return this.httpClient.get(url, {
       responseType: 'text',
     });
+  }
+
+  getFirebaseLinkId(url: string) {
+    return from(
+      addDoc(collection(this.firestore, 'links'), { url }).then((ref) => ref.id)
+    );
   }
 }
